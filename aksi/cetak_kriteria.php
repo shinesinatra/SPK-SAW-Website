@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include "C:/xampp/htdocs/dinamis/connection.php";
-    include "C:/xampp/htdocs/dinamis/fpdf/fpdf.php";
+    include "C:/xampp/htdocs/spk_saw/connection.php";
+    include "C:/xampp/htdocs/spk_saw/fpdf/fpdf.php";
     date_default_timezone_set('Asia/Jakarta');
     $username = $_SESSION['username'];
     $query = "SELECT full_name FROM users WHERE username = '$username'";
@@ -26,24 +26,18 @@
     $tanggal = date('d') . ' ' . $bulan[(int)date('m')] . ' ' . date('Y');
     class PDF extends FPDF {
         function Header() {
-            $this->Image('/xampp/htdocs/dinamis/gambar/sds.jpg', 10, 5, 30);
+            $this->Image('/xampp/htdocs/spk_saw/gambar/logo.png', 10, 5, 20);
             $this->SetFont('Times','',12);
-            $this->Cell(0, 5, 'Jl.Latuharhary No.14 RT/RW. 7/7,', 0, 1, 'C');
-            $this->Cell(0, 5, 'Kelurahan Menteng, Kecamatan Menteng,', 0, 1, 'C');
-            $this->Cell(0, 5, 'Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10310', 0, 1, 'C');
-            $this->Cell(0, 5, 'Telepon: (021) 3915488   	Fax: (021) 3915488', 0, 1, 'C');
-            $this->Cell(0, 5, 'Email: ignatius_sd@yahoo.co.id', 0, 1, 'C');
+            $this->Cell(0, 5, 'Alamat', 0, 1, 'C');
+            $this->Cell(0, 5, ' ', 0, 1, 'C');
+            $this->Cell(0, 5, ' ', 0, 1, 'C');
+            $this->Cell(0, 5, 'Telepon: (021)   	Fax: (021) ', 0, 1, 'C');
+            $this->Cell(0, 5, 'Email: example@yahoo.co.id', 0, 1, 'C');
             $this->SetLineWidth(0.7);
             $this->Line(10, 40, 200, 40);
             $this->Ln(10);
         }
-        function Footer() {
-            $this->SetY(-15);
-            $this->SetFont('Times','B',14);
-            $this->Cell(0, 10, 'SDS SANTO IGNATIUS', 0, 0, 'C');
-            $this->SetFont('Times','B',8);
-            $this->Cell(0,10, $this->PageNo().'/{nb}',0,0,'R');
-        }
+        
     }
     // Objek PDF
     $pdf = new PDF('P','mm','A4');
@@ -81,7 +75,7 @@
     $pdf->Cell(0, 5, 'Petugas', 0, 0, 'L');
     $pdf->Ln(30);
     $pdf->SetX(18);
-    $pdf->Cell(0, 5, 'Sr. Gabriella Gowa Keytimu', 0, 0, 'L');
+    $pdf->Cell(0, 5, 'Nama', 0, 0, 'L');
     $pdf->SetX(150);
     $pdf->Cell(0, 5, $full_name, 0, 1, 'L');
     $pdf->Output();

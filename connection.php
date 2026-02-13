@@ -2,6 +2,6 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $database = "dinamis";
+    $database = "spk_saw";
     $koneksi = mysqli_connect($servername, $username, $password, $database);
 ?>

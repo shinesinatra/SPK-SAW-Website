@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Agu 2025 pada 18.28
+-- Waktu pembuatan: 13 Feb 2026 pada 18.56
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dinamis`
+-- Database: `spk_saw`
 --
 
 -- --------------------------------------------------------
@@ -61,17 +61,6 @@ CREATE TABLE `penilaian` (
   `penilaian_sikap_perilaku` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `penilaian`
---
-
-INSERT INTO `penilaian` (`kelas`, `nisn`, `nama`, `nilai_rata_rata_rapor`, `presentase_kehadiran`, `keaktifan_ekstrakulikuler`, `keaktifan_kompetisi_lomba`, `penilaian_sikap_perilaku`) VALUES
-('VI', '123', 'Adiva Saraun', 8.5, 8.9, 6.5, 6, 9),
-('VI', '124', 'Albertus Eko', 8.3, 9.1, 7, 6, 9.2),
-('VI', '125', 'Andreas Dwi', 7.9, 9.6, 7, 7, 9.1),
-('VI', '126', 'Thomas Agung', 8.1, 9.5, 6, 6, 9.3),
-('VI', '127', 'Veronica Tri', 8.3, 9.4, 6.5, 6.5, 9.5);
-
 -- --------------------------------------------------------
 
 --
@@ -83,17 +72,6 @@ CREATE TABLE `perankingan` (
   `nama` varchar(50) NOT NULL,
   `nilai` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `perankingan`
---
-
-INSERT INTO `perankingan` (`nisn`, `nama`, `nilai`) VALUES
-('123', 'Adiva Saraun', 0.93729636591479),
-('124', 'Albertus Eko', 0.95079518649565),
-('125', 'Andreas Dwi', 0.97461300309598),
-('126', 'Thomas Agung', 0.92455089930709),
-('127', 'Veronica Tri', 0.96020308123249);
 
 -- --------------------------------------------------------
 
@@ -109,17 +87,6 @@ CREATE TABLE `siswa` (
   `jenis_kelamin` varchar(15) NOT NULL,
   `alamat` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `siswa`
---
-
-INSERT INTO `siswa` (`nisn`, `kelas`, `nama`, `tanggal_lahir`, `jenis_kelamin`, `alamat`) VALUES
-('123', 'VI', 'Adiva Saraun', '2013-01-01', 'Perempuan', 'Jakarta Pusat'),
-('124', 'VI', 'Albertus Eko', '2013-01-02', 'Laki-laki', 'Jakarta Utara'),
-('125', 'VI', 'Andreas Dwi', '2013-01-03', 'Laki-laki', 'Jakarta Selatan'),
-('126', 'VI', 'Thomas Agung', '2013-01-04', 'Laki-laki', 'Jakarta Timur'),
-('127', 'VI', 'Veronica Tri', '2013-01-05', 'Perempuan', 'Jakarta Barat');
 
 -- --------------------------------------------------------
 
@@ -139,8 +106,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`nik`, `full_name`, `username`, `password`) VALUES
-('nik001', 'Administrator', 'admin', 'admin'),
-('nik002', 'Agustinus Hery Siswanto', 'agustinus.hery', 'admin');
+('nik001', 'Administrator', 'admin', 'admin');
 
 --
 -- Indexes for dumped tables
